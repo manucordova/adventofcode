@@ -9,6 +9,7 @@ class ParserError(Exception):
 
 
 python_canevas = """import os
+import time
 import adventofcode as aoc
 
 
@@ -64,16 +65,22 @@ if __name__ == "__main__":
         if debug:
             # Just print the solution
             if level == 1:
+                start = time.time()
                 print(solve_level_1())
+                stop = time.time()
             elif level == 2:
+                start = time.time()
                 print(solve_level_2())
+                stop = time.time()
+            
+            print(f"Level {level} run in {stop - start:.4e} s")
 
         else:
             if level == 1:
                 # Submit the solution
                 verdict, success = con.submit_answer(1, solve_level_1())
                 if success:
-                    con.reload_instructions(pl.Path(__file__).parent.resolve())
+                    con.reload_instructions(os.path.dirname(__file__))
             elif level == 2:
                 verdict, success = con.submit_answer(2, solve_level_2())
 
