@@ -1,0 +1,17 @@
+[project]
+name = "adventofcode"
+readme = "README.md"
+description = "Advent of Code helper package"
+version = "0.0.1"
+authors = [
+    { name = "Manuel Cordova", email = "manucordova@bluewin.ch" }
+]
+
+dependencies = [
+    "setuptools>=69.2",
+    "numpy>=1.26",
+    "requests>=2.31",
+]
+
+[build-system]
+requires = ["setuptools", "numpy", "requests"]
