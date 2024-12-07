@@ -8,8 +8,16 @@ class ParserError(Exception):
     pass
 
 
-python_canevas = """import pathlib as pl
+python_canevas = """import os
 import adventofcode as aoc
+
+
+def parse_input():
+
+    with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
+        txt = file.read().strip()
+    
+    return txt
 
 
 def solve_level_1():
@@ -18,8 +26,7 @@ def solve_level_1():
     \"\"\"
 
     # Read input file
-    with open(pl.Path(pl.Path(__file__).parent.resolve(), "input.txt"), "r") as file:
-        input_txt = file.read().strip()
+    input_txt = parse_input()
 
     print(input_txt)
 
@@ -32,8 +39,7 @@ def solve_level_2():
     \"\"\"
 
     # Read input file
-    with open(pl.Path(pl.Path(__file__).parent.resolve(), "input.txt"), "r") as file:
-        input_txt = file.read().strip()
+    input_txt = parse_input()
 
     print(input_txt)
 
