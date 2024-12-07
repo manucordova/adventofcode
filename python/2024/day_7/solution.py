@@ -1,4 +1,4 @@
-import pathlib as pl
+import os
 import adventofcode as aoc
 
 
@@ -12,7 +12,11 @@ def evaluate_possible_operation(trg, cur_num, next_nums, concat=False):
             (concat and evaluate_possible_operation(trg, int(str(cur_num) + str(next_nums[0])), next_nums[1:], concat=concat)))
 
 
-def parse_input(txt: str):
+def parse_input():
+
+    with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
+        txt = file.read().strip()
+
     ops = []
 
     for line in txt.split("\n"):
@@ -29,10 +33,7 @@ def solve_level_1():
     """
 
     # Read input file
-    with open(pl.Path(pl.Path(__file__).parent.resolve(), "input.txt"), "r") as file:
-        input_txt = file.read().strip()
-
-    ops = parse_input(input_txt)
+    ops = parse_input()
 
     tot = 0
     for trg, nums in ops:
@@ -48,10 +49,7 @@ def solve_level_2():
     """
 
     # Read input file
-    with open(pl.Path(pl.Path(__file__).parent.resolve(), "input.txt"), "r") as file:
-        input_txt = file.read().strip()
-
-    ops = parse_input(input_txt)
+    ops = parse_input()
 
     tot = 0
     for trg, nums in ops:
