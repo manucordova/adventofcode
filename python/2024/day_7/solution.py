@@ -6,12 +6,10 @@ def evaluate_possible_operation(trg, cur_num, next_nums, concat=False):
 
     if len(next_nums) == 0:
         return trg == cur_num
-    
-    concat_num = 10 ** len(str(next_nums[0]))
 
     return (evaluate_possible_operation(trg, cur_num + next_nums[0], next_nums[1:], concat=concat) or
             evaluate_possible_operation(trg, cur_num * next_nums[0], next_nums[1:], concat=concat) or
-            (concat and evaluate_possible_operation(trg, cur_num * concat_num + next_nums[0], next_nums[1:], concat=concat)))
+            (concat and evaluate_possible_operation(trg, int(str(cur_num) + str(next_nums[0])), next_nums[1:], concat=concat)))
 
 
 def parse_input(txt: str):
@@ -65,13 +63,14 @@ def solve_level_2():
 
 if __name__ == "__main__":
 
-    debug = False
+    debug = True
 
     year, day = aoc.get_year_day_from_path(__file__)
     con = aoc.AOCConnector(year, day)
 
     # Get current level
     level = con.get_level()
+    level = 2
     if level < 1:
         raise aoc.WrongLevelError()
     if level > 2:
