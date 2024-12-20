@@ -60,7 +60,7 @@ class AOCConnector:
     max_year = cur_date.year
     min_day = 1
     max_day = 25
-    SESSION_TOKEN = os.environ("AOC_SESSION_TOKEN")
+    SESSION_TOKEN = os.environ.get("AOC_SESSION_TOKEN", "N/A")
     instruction_parser = None
     root_url = "https://adventofcode.com"
 
