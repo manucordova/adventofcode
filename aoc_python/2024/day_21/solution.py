@@ -1,8 +1,6 @@
 import os
 import time
 import adventofcode as aoc
-import itertools as it
-from functools import cache
 
 
 numeric_pos = {"7": (0, 0), "8": (0, 1), "9": (0, 2), "4": (1, 0), "5": (1, 1), "6": (1, 2),
