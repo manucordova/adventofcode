@@ -119,7 +119,6 @@ if __name__ == "__main__":
 
     # Get current level
     level = con.get_level()
-    level = 2
     if level < 1:
         raise aoc.WrongLevelError()
     if level > 2:
