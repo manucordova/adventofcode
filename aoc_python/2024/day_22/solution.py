@@ -20,7 +20,7 @@ class Sequence:
         self._num = self._num % 16777216
     
     def _compute_price(self):
-        return int(str(self._num)[-1])
+        return self._num % 10
 
     def _update_diffs(self):
 
@@ -112,13 +112,14 @@ def solve_level_2():
 
 if __name__ == "__main__":
 
-    debug = False
+    debug = True
 
     year, day = aoc.get_year_day_from_path(__file__)
     con = aoc.AOCConnector(year, day)
 
     # Get current level
     level = con.get_level()
+    level = 2
     if level < 1:
         raise aoc.WrongLevelError()
     if level > 2:
