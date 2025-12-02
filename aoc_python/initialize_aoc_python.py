@@ -17,7 +17,7 @@ def parse_input():
 
     with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
         txt = file.read().strip()
-    
+
     return txt
 
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
                 start = time.time()
                 print(solve_level_2())
                 stop = time.time()
-            
+
             print(f"Level {level} run in {stop - start:.4e} s")
 
         else:

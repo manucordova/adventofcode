@@ -1,3 +1,4 @@
+import os
 import pathlib as pl
 
 
@@ -14,7 +15,7 @@ def get_year_day_from_path(file_path: str):
     """
 
     this_path = str(pl.Path(file_path).resolve())
-    year = int(this_path.split("/")[-3])
-    day = int(this_path.split("day_")[1].split("/")[0])
+    year = int(this_path.split(os.sep)[-3])
+    day = int(this_path.split("day_")[1].split(os.sep)[0])
 
     return year, day
