@@ -21,8 +21,7 @@ def get_max_jolt(bank: list, i0=0, num=2):
         return max(bank[i0:])
 
     # Find the largest number that still leaves room for the next numbers
-    for i in range(10):
-        n = 9 - i
+    for n in range(9, -1, -1):
         if n in bank[i0:]:
             idx = bank[i0:].index(n) + i0
             if len(bank) - idx >= num:
@@ -55,13 +54,14 @@ def solve_level_2():
 
 if __name__ == "__main__":
 
-    debug = False
+    debug = True
 
     year, day = aoc.get_year_day_from_path(__file__)
     con = aoc.AOCConnector(year, day)
 
     # Get current level
     level = con.get_level()
+    level = 2
     if level < 1:
         raise aoc.WrongLevelError()
     if level > 2:
